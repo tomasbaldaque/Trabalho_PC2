@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri May  3 18:50:45 2024
+
+@author: Inês Deus
+"""
+
+# pasta a ignorar
+.spyproject
+__pycache__
+
+#ficheiros a ignorar
+datafile.py
