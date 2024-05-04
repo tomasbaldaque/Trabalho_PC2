@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>horario demo PCII {{header}}</title>
+    <title>Restaurante Trabalho_PC2{{header}}</title>
     {% block title %}
     {% endblock %}
   </head>
@@ -14,18 +14,18 @@
                     <li><a class="button" href="/login">Login</a></li>
                 {% else %}
                     <li><a class="button" href="/logoff">Logoff</a></li>
-                    <li><a class="button" href="/gform/Docentes">Docentes</a></li>
-                    <li><a class="button" href="/gform/Salas">Salas</a></li>
-                    <li><a class="button" href="/gform/Turmas">Turmas</a></li>
-                    <li><a class="button" href="/gform/UnidadeCurric">UnidadeCurric</a></li>
-                    <li><a class="button" href="/gform/Class_horario">Class_horario</a></li>
+                    <li><a class="button" href="/gform/Página_Cliente">Página_Cliente</a></li>
+                    <li><a class="button" href="/gform/Reserva_Mesa">Reserva_Mesa</a></li>
+                    <li><a class="button" href="/gform/Reserva">Reserva</a></li>
+                    <li><a class="button" href="/gform/Pedido">Pedido</a></li>
+                    <li><a class="button" href="/gform/Estado_Pedido">Estado_Pedido</a></li>
                    <li>||</li>
-                    <li><a class="button" href="/gformT/Docentes?option=''">Docentes</a></li>
-                    <li><a class="button" href="/gformT/Class_horario?option=''">Class_horario</a></li>
+                    <li><a class="button" href="/gformT/Clientes?option=''">Clientes</a></li>
+                    <li><a class="button" href="/gformT/?option=''">Class_horario</a></li>
                     
-                    <li><a class="button" href="/hform/horario?option=''">Grelha horario</a></li>
+                    <li><a class="button" href="/hform/Stock?option=''">Stock</a></li>
                     
-                    <li><a class="button" style="color:lightblue">User: {{ulogin}}</a></li>
+                    <li><a class="button" style="color:orange">User: {{ulogin}}</a></li>
                 {% endif %}
             </ul>
         </nav>
