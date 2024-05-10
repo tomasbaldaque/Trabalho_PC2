@@ -59,8 +59,14 @@ class Userlogin(Gclass):
             if not valid:
                 message = 'Wrong password'
         else:
-            message = 'No existent user'
+            self.create_user(user, password)
+            message = "Valid"
         return message
+    @classmethod 
+    def create_user(self, user, password):
+        new_user = Userlogin(user, "customer", password=self.set_password(password))
+        new_user.insert(user)
+        return new_user
     @classmethod
     def set_password(self, password):
         passencrypted = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
