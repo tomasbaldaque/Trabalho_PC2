@@ -13,6 +13,7 @@ app = Flask(__name__)
 Userlogin.read("data/restaurante.db")
 app.secret_key = 'BAD_SECRET_KEY'
 import subs_login as lsub
+import subs_gform as gfsub
 
 @app.route("/")
 def index():
@@ -29,6 +30,10 @@ def logoff():
 @app.route("/chklogin", methods=["post","get"])
 def chklogin():
     return lsub.chklogin()
+
+@app.route("/gform/<cname>", methods=["post","get"])
+def gform(cname=''):
+     return gfsub.gform(cname)
 
 if __name__ == '__main__':
     #app.run(debug=True)
