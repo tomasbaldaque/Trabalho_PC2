@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sabores de Itália{{header}}</title>
+    <title>Sabores de Itália {{header}}</title>
     <meta name="title" content="Sabores de Itália">
     <meta name="description" content="">
     {% block title %}
@@ -17,16 +17,8 @@
                     <li><a class="button" href="/login">Login</a></li>
                 {% else %}
                     <li><a class="button" href="/logoff">Logoff</a></li>
-                    <li><a class="button" href="/gform/Página_Cliente">Página_Cliente</a></li>
-                    <li><a class="button" href="/gform/Reserva_Mesa">Reserva_Mesa</a></li>
                     <li><a class="button" href="/gform/Reserva">Reserva</a></li>
-                    <li><a class="button" href="/gform/Pedido">Pedido</a></li>
-                    <li><a class="button" href="/gform/Estado_Pedido">Estado_Pedido</a></li>
-                   <li>||</li>
-                    <li><a class="button" href="/gformT/Clientes?option=''">Clientes</a></li>
-                    <li><a class="button" href="/gformT/?option=''">Class_horario</a></li>
-                    
-                    <li><a class="button" href="/hform/Stock?option=''">Stock</a></li>
+                    <li><a class="button" href="/gform/Menu">Menu</a></li>
                     
                     <li><a class="button" style="color:orange">User: {{ulogin}}</a></li>
                 {% endif %}

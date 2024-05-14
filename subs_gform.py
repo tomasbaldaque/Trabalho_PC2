@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request, session
-
+from classes.menu import Menu
 prev_option = ""
 
 def gform(cname=''):
