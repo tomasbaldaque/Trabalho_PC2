@@ -5,6 +5,10 @@ Created on Tue Apr 30 15:21:54 2024
 @author: Tomás
 """
 
+import bcrypt
+
+from classes.gclass import Gclass
+
 class Reserva:
     def __init__(self, cliente: Cliente, dataHora: str, status: str):
         self.cliente = cliente
