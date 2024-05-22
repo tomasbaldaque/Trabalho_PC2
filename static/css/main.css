@@ -1,6 +1,21 @@
 body{
-    margin: 0;
-    min-height: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+	background:Url("/static/imagens/italianfood.jpg") no-repeat;
+	background-size:cover;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+*{text-decoration: none; color:black;}
+
+form {width: 35%;
+}
+
+h1{
+   color: black
 }
 
 nav{
@@ -8,25 +23,42 @@ nav{
     float: left;
 }
 
-.menu{
-    margin: 0;
-    padding: 8px;
-    height: 100%;
-    background-color: orange;
-
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  margin-bottom:20px;
 }
 
-.menu li{
-    display: inline;
+button {
+  background-color: orange;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius:20px;
+  cursor: pointer;
+  width: 25%;
+}
+
+button:hover {
+  opacity: 0.7;
 }
 
 .button{
     font-family: Arial;
+    background-color: orange;
     font-size: 1em;
     font-style: none;
-    color: #ffffff;
-    padding: 8px;
+    color: black;
+    padding: 14px 20px;
     text-decoration: none;
+    margin: 8px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 25%;
 }
 
 .button:link{
@@ -35,7 +67,7 @@ nav{
 }
 
 .button:hover{
-    background-color: lightblue;
+    opacity: 0.7;
 }
 
 .dados{
@@ -45,12 +77,14 @@ nav{
 
 .button1{
     font-family: Arial;
-    background-color: #334a94;
+    background-color: orange;
     font-size: 1em;
     font-style: none;
-    color: white;
-    padding: 4px;
-    border-radius: 5px}
+    color: black;
+    padding: 4px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 25%
 }
 
 .button1:link{
@@ -59,7 +93,7 @@ nav{
 }
 
 .button1:hover{
-    background-color: lightblue;
+    opacity: 0.7;
 }
 
 .button1:disabled{
@@ -82,4 +116,36 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.navigation{
+background-color:black;
+border-radius: 30px;
+}
+
+.navigation ul{
+overflow:auto;
+}
+
+.navigation li{
+float:right;
+list-style: none;
+margin: 15px 30px;
+}
+
+.naviagtion li a{
+padding: 3px 3px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: orange;
+  color: white;
+}
+
+a{
+text-decoration: none;
+font-weight: bold;
+color:black;
 }

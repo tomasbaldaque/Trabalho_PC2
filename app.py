@@ -35,6 +35,10 @@ def chklogin():
 def gform(cname=''):
      return gfsub.gform(cname)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     #app.run(debug=True)
     app.run(debug=True,port=7000)
