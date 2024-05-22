@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class = "dados">
+            <form id="formmenu" action="/menu?option=search" method="get">
+                <input type="text" id="nome" name="nome" value="{{name}}" size="30"/>
+                <button id="search" type="submit" class="button1">Procurar</button>
+            </form>
+            {% if obj %}
+            <input type="text" disabled id="codigo" name="codigo" value="{{obj['codigo']}}" size="30"/>
+            <input type="text" disabled id="descricao" name="descricao" value="{{obj['descricao']}}" size="30"/>
+            <input type="text" disabled id="preco" name="preco" value="{{obj['preco']}}" size="30"/>
+            {%endif%}
+            <br><br>
+    </div>
+
+{% endblock %}

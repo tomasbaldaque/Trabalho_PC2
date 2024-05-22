@@ -11,6 +11,7 @@ def logoff():
     return render_template("index.html", ulogin=session.get("user"))
 
 def chklogin():
+    print(request.form)
     user = request.form["user"]
     password = request.form["password"]
     resul = Userlogin.chk_password(user, password)

@@ -11,16 +11,16 @@
     {% endblock %}
   </head>
     <body>
-        <nav>
-            <ul class="menu">
+        <nav class="navigation">
+            <ul>
                 {% if ulogin == None %}
                     <li><a class="button" href="/login">Login</a></li>
                 {% else %}
                     <li><a class="button" href="/logoff">Logoff</a></li>
                     <li><a class="button" href="/gform/Reserva">Reserva</a></li>
-                    <li><a class="button" href="/gform/Menu">Menu</a></li>
-                    
-                    <li><a class="button" style="color:orange">User: {{ulogin}}</a></li>
+                    <li><a class="button" href="/menu">Menu</a></li>
+                    <li><a class="button" href="/about">Sobre Nós</a></li>
+                    <li><a class="button" style="color:black">User: {{ulogin}}</a></li>
                 {% endif %}
             </ul>
         </nav>

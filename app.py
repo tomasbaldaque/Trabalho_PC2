@@ -37,7 +37,11 @@ def gform(cname=''):
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', ulogin=session.get("user"))
+
+@app.route('/menu')
+def menu():
+    return render_template('menu.html', ulogin=session.get("user"))
 
 if __name__ == '__main__':
     #app.run(debug=True)
