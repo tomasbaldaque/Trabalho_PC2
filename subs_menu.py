@@ -6,7 +6,7 @@ def chkmenu():
     if (ulogin != None):
         nome = request.args.get("nome")
         print(nome)
-        obj = Menu.find(nome, "_nome")
+        obj = Menu.find(nome)
         return render_template("menu.html", ulogin=session.get("user"), obj = obj)
     else:
         return render_template("index.html", ulogin=ulogin)
