@@ -11,6 +11,20 @@ class Gclass:
         pass
 
 class Pedido(Gclass):
+    obj = dict()
+    lst = list()
+    pos = 0
+    sortkey = ''
+    auto_number = 0
+    nkey = 1
+    
+    att = ['_code','_cliente','_data_hora','_status']
+
+    header = 'Pedido'
+
+    des = ['Code','Cliente','Data_hora','Status']
+
+
     def __init__(self, cliente, data_hora, status):
         super().__init__()
         self.__cliente = cliente
