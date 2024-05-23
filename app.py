@@ -7,7 +7,7 @@ Created on Fri May  3 19:29:35 2024
 
 from flask import Flask, render_template, request, session
 from classes.userlogin import Userlogin
-
+from classes.reservas import Reserva
 
 app = Flask(__name__)
 Userlogin.read("data/restaurante.db")
@@ -45,6 +45,6 @@ def menu():
 
 if __name__ == '__main__':
     #app.run(debug=True)
-    app.run(debug=True,port=7000)
+    app.run(debug=False,port=7000)
     
     
