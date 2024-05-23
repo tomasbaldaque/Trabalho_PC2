@@ -66,6 +66,14 @@ class Menu(Gclass):
     def imagem(self, imagem):
         self._imagem = imagem
         
+    @classmethod 
+    def find(cls, nome):
+        for menu in Menu.obj.values():
+            if menu.nome.lower() == nome.lower():
+                return menu
+        return None
+
+        
     def to_dict(self):
         return {
             'Code': self._code,
