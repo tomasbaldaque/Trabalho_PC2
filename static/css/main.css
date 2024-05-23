@@ -61,7 +61,10 @@ button:hover {
     width: 25%;
 }
 
-
+.button:link{
+    background-color: #334a94;
+    color: #ffffff;
+}
 
 .button:hover{
     opacity: 0.7;
