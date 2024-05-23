@@ -7,13 +7,15 @@ Created on Fri May  3 19:29:35 2024
 
 from flask import Flask, render_template, request, session
 from classes.userlogin import Userlogin
-
+from classes.menu import Menu
+from classes.reservas import Reserva
 
 app = Flask(__name__)
 Userlogin.read("data/restaurante.db")
 app.secret_key = 'BAD_SECRET_KEY'
 import subs_login as lsub
 import subs_gform as gfsub
+import subs_menu as msub
 
 @app.route("/")
 def index():
@@ -41,10 +43,10 @@ def about():
 
 @app.route('/menu')
 def menu():
-    return render_template('menu.html', ulogin=session.get("user"))
+    return msub.chkmenu()
 
 if __name__ == '__main__':
     #app.run(debug=True)
-    app.run(debug=True,port=7000)
+    app.run(debug=False,port=7000)
     
     

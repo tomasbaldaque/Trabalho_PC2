@@ -5,30 +5,41 @@ Created on Tue Apr 30 15:21:54 2024
 @author: Tomás
 """
 
-import bcrypt
-
 from classes.gclass import Gclass
 
-class Reserva:
-    def __init__(self, cliente: Cliente, dataHora: str, status: str):
-        self.cliente = cliente
-        self.dataHora = dataHora
-        self.status = status
-
+class Reserva(Gclass):
+    
+    obj = dict()
+    lst = list()
+    pos = 0
+    sortkey = ''
+    auto_number = 1  
+    nkey = 1
+    
+    att = ['_cliente', '_dataHora', '_status']
+    
+    header = 'reserva'
+   
+    des = ['cliente', 'dataHora', 'status']
+    
+    def __init__(self, Cliente, dataHora: str, status: str):
+        super()._init_()
+        self._Cliente = Cliente
+        self._dataHora = dataHora
+        self._status = status
+        
+        Reserva.obj[str(Cliente)] = self
+        Reserva.lst.append(str(Cliente))
+      
+    @property 
     def getCliente(self):
-        return self.cliente
-
-    def setCliente(self, cliente):
-        self.cliente = cliente
-
+        return self.Cliente 
+    @property
     def getDataHora(self):
         return self.dataHora
-
-    def setDataHora(self, dataHora):
-        self.dataHora = dataHora
-
+    @property
     def getStatus(self):
         return self.status
-
+    @property
     def setStatus(self, status):
         self.status = status
