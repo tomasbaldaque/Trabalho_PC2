@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, session
 from classes.userlogin import Userlogin
 from classes.menu import Menu
 from classes.Reservas import Reserva
-
+from classes.pedidos import Pedido
 
 def gform(cname=''):
     global prev_option
