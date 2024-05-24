@@ -1,16 +1,33 @@
-{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer order demo PCII</title>
+  {% block title %}
+  {% endblock %}
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      {% if ulogin == None %}
+        <li><a class="button" href="/login">Login</a></li>   
+      {% else %}
+        <li><a class="button" href="/logoff">Logoff</a></li>
 
-{% block title %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
-{% endblock %}
+        <li><a class="button" href="/submenu?subm=Residente">Reserva</a></li>
+        <li><a class="button" href="/submenu?subm=Reserva">dataHora</a></li>
+        <li><a class="button" href="/submenu?subm=Estacionamento">status</a></li>
 
-{% block content %}
-<center>
-    <h1><a href="/" target="_Self" style="text-align:centre">início</a></h1>
-</center>
+        {% if submenu == "Reserva" %}
 
-<div class="about-section">
-    <h1><b>Sobre Nós<b></h1>
-    <p>Este trabalho foi desenvolvido no âmbito da disciplina de Programação II, que faz parte da Licenciatura em Engenharia e Gestão Industrial na Faculdade de Engenharia da Universidade do Porto.</p>
-</div>
-{% endblock %}
+        {% endif %}
+            </ul>
+        </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
+        
+
+
