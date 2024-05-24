@@ -60,23 +60,23 @@ class Reserva(Gclass):
             print(f"Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
     
     
-    def criar_reserva(cliente, dataHora, status):
+    def criar_reserva(cliente, dataHora, status):   #método para criar uma reserva 
         return Reserva(cliente, dataHora, status)
     
     
-    def alterar_reserva(cliente, dataHora=None, status=None):
+    def alterar_reserva(cliente, dataHora=None, status=None):  #método para alterar uma reserva
         reserva = Reserva.obj.get(cliente)
         if reserva:
             if dataHora:
-                reserva.DataHora = dataHora
+                reserva.DataHora = dataHora  #hora da reserva
             if status:
-                reserva.status = status
+                reserva.status = status  #estado da reserva
             print(f"Reserva atualizada: Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
         else:
             print(f"Reserva para o cliente {cliente} não encontrada.")
     
     
-    def exibir_reserva(cliente):
+    def exibir_reserva(cliente):      #método para mostrar em que estado está a reserva do cliente
         reserva = Reserva.obj.get(cliente)
         if reserva:
             print(f"Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")

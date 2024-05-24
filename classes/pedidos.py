@@ -16,51 +16,85 @@ class Pedido(Gclass):
     auto_number = 0
     nkey = 1
     
-    att = ['_code','_cliente','_data_hora','_status']
-
+    att = ['_code', '_cliente', '_data_hora', '_status']
+    
     header = 'Pedido'
-
-    des = ['Code','Cliente','Data_hora','Status']
-
+    
+    des = ['Code', 'Cliente', 'Data_hora', 'Status']
 
     def __init__(self, cliente, data_hora, status):
         super().__init__()
-        self.__cliente = cliente
-        self.__itens = []  
-        self.__data_hora = data_hora
-        self.__status = status
-   
-    def get_cliente(self):
-        return self.__cliente
-
-    def set_cliente(self, cliente):
-        self.__cliente = cliente
-
-    def get_data_hora(self):
-        return self.__data_hora
-
-    def set_data_hora(self, data_hora):
-        self.__data_hora = data_hora
-
-    def get_status(self):
-        return self.__status
-
-    def set_status(self, status):
-        self.__status = status
-
-    def adicionar_item(self, item):
-        self.__itens.append(item)
-
-    def remover_item(self, item):
-        if item in self.__itens:
-            self.__itens.remove(item)
+        self._code = Pedido.auto_number
+        Pedido.auto_number += 1
+        self._cliente = cliente
+        self._itens = []
+        self._data_hora = data_hora
+        self._status = status
+        
+        Pedido.obj[self._code] = self
+        Pedido.lst.append(self._code)
+    
+    @property
+    def cliente(self):
+        return self._cliente
+    
+    @cliente.setter
+    def cliente(self, value):
+        self._cliente = value
+    
+    @property
+    def data_hora(self):
+        return self._data_hora
+    
+    @data_hora.setter
+    def data_hora(self, value):
+        self._data_hora = value
+    
+    @property
+    def status(self):
+        return self._status
+    
+    @status.setter
+    def status(self, value):
+        self._status = value
+    
+    def adicionar_item(self, item):    # método para adicionar item do menu ao pedido
+        self._itens.append(item)
+    
+    def remover_item(self, item):       #método para remover um item do pedido  caso o cliente mude de ideias(exemplo)
+        if item in self._itens:
+            self._itens.remove(item)
         else:
             print("Item não encontrado no pedido.")
+    
+    def calcular_total(self):          #método para calcular o total de itens do pedido 
+        return sum(item.get_preco() for item in self._itens)
+    
+    def __str__(self):       #método mágico
+        return f"Pedido(Code: {self._code}, Cliente: {self._cliente}, DataHora: {self._data_hora}, Status: {self._status}, Total: {self.calcular_total()})"
+    
+    def __repr__(self):
+        return self.__str__()
 
-  
-    def calcular_total(self):
-        total = 0
-        for item in self.__itens:
-            total += item.get_preco()
-        return total
+    @classmethod                       #método da classe para formar uma lista cm os itens e levar a lista do pedido para a cozinha
+    def listar_pedidos(cls):
+        return [cls.obj[key] for key in cls.lst]
+
+# Exemplo de uma classe Item para usar com Pedido
+class Item:
+    def __init__(self, nome, preco):
+        self._nome = nome
+        self._preco = preco
+    
+    def get_nome(self):
+        return self._nome
+    
+    def get_preco(self):
+        return self._preco
+    
+    def __str__(self):
+        return f"Item(Nome: {self._nome}, Preço: {self._preco})"
+    
+    def __repr__(self):
+        return self.__str__()
 
