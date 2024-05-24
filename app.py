@@ -8,7 +8,8 @@ Created on Fri May  3 19:29:35 2024
 from flask import Flask, render_template, request, session
 from classes.userlogin import Userlogin
 from classes.menu import Menu
-from classes.reservas import Reserva
+from classes.Reservas import Reserva
+#fazer para todaas
 
 app = Flask(__name__)
 Userlogin.read("data/restaurante.db")
@@ -41,9 +42,9 @@ def gform(cname=''):
 def about():
     return render_template('about.html', ulogin=session.get("user"))
 
-@app.route('/PáginaReservas')
-def PáginaReservas():
-    return render_template('PáginaReservas.html', ulogin=session.get("user"))
+# @app.route('/PáginaReservas')
+# def PáginaReservas():
+#     return render_template('PáginaReservas.html', ulogin=session.get("user"))
 
 @app.route('/menu')
 def menu():
@@ -52,5 +53,10 @@ def menu():
 if __name__ == '__main__':
     #app.run(debug=True)
     app.run(debug=False,port=7000)
+    
+
+    
+    
+    
     
     

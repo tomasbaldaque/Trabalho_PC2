@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sat May 11 23:01:29 2024
-
-@author: antoniooandree
-"""
-
 from classes.gclass import Gclass
 
 class Pedido(Gclass):
@@ -97,4 +89,5 @@ class Item:
     
     def __repr__(self):
         return self.__str__()
+
 

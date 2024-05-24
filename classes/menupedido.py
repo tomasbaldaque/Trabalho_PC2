@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May 23 11:20:21 2024
-
-@author: antoniooandree
-"""
 from classes.pedido import Pedido
 from classes.menu import Menu
 from classes.gclass import Gclass 

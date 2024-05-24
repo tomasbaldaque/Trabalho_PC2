@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 30 15:21:54 2024
-
-@author: Tomás
-"""
-
 from classes.gclass import Gclass  #importar a Gclass
 
 class Reserva(Gclass):

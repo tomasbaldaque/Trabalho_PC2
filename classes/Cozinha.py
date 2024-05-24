@@ -30,11 +30,11 @@ class Cozinha(Gclass):
         self.PedidosPreparo = []
         self.totalVendas = 0
 
-    def adicionarPedidoEspera(self, pedido):
+    def adicionarPedidoEspera(self, pedido):    #método para adicionar pedido
         self.PedidosEspera.append(pedido)
         print(f"Pedido adicionado à espera: {pedido.get_cliente()} - {pedido.get_data_hora()}")
 
-    def moverPedidoParaPreparo(self, pedido):
+    def moverPedidoParaPreparo(self, pedido):   #método para o pedido começar a ser preparado
         if pedido in self.PedidosEspera:
             self.PedidosEspera.remove(pedido)
             self.PedidosPreparo.append(pedido)
@@ -43,7 +43,7 @@ class Cozinha(Gclass):
         else:
             print(f"Pedido não encontrado na lista de espera: {pedido.get_cliente()} - {pedido.get_data_hora()}")
 
-    def marcarPedidoConcluido(self, pedido):
+    def marcarPedidoConcluido(self, pedido):   # método para dizer que o pedido está concluído 
         if pedido in self.PedidosPreparo:
             self.PedidosPreparo.remove(pedido)
             pedido.set_status('Concluído')

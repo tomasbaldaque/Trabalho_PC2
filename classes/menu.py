@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from classes.gclass import Gclass
 import pandas as pd
 

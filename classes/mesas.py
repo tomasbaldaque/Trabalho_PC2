@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sat May 11 21:53:48 2024
-
-@author: antoniooandree
-"""
-
 class Gclass:
     def __init__(self):
         pass

@@ -1,14 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May 16 12:32:31 2024
-
-@author: miguelanjo
-"""
-
-class Gclass:
-    def __init__(self):
-        pass
+from classes.gclass import Gclass
 
 class Sala(Gclass):
     def __init__(self, numero: int, capacidade: int, tipo: str):
