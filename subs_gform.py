@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, session
 from classes.menu import Menu
 from classes.Reservas import Reserva
+from classes.pedidos import Pedido
 prev_option = ""
 
 def gform(cname=''):

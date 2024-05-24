@@ -47,7 +47,7 @@ class Reserva(Gclass):
     def status(self, status):
         self._status = status
 
-<<<<<<< Updated upstream
+
 
     def listar_reservas():
         for cliente, reserva in Reserva.obj.items():
@@ -65,7 +65,7 @@ class Reserva(Gclass):
                 reserva.DataHora = dataHora  #hora da reserva
             if status:
                 reserva.status = status  #estado da reserva
-=======
+
     def listar_reservas():
         for cliente, reserva in Reserva.obj.items():
             print(f"Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
@@ -82,26 +82,17 @@ class Reserva(Gclass):
                 reserva.DataHora = dataHora
             if status:
                 reserva.status = status
->>>>>>> Stashed changes
+
             print(f"Reserva atualizada: Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
         else:
             print(f"Reserva para o cliente {cliente} não encontrada.")
-    
-    
-<<<<<<< Updated upstream
+
     def exibir_reserva(cliente):      #método para mostrar em que estado está a reserva do cliente
-=======
-    def exibir_reserva(cliente):
->>>>>>> Stashed changes
+
         reserva = Reserva.obj.get(cliente)
         if reserva:
             print(f"Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
         else:
             print(f"Reserva para o cliente {cliente} não encontrada.")
     
-<<<<<<< Updated upstream
-=======
 
-
-
->>>>>>> Stashed changes
