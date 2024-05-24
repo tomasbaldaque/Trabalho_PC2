@@ -9,8 +9,6 @@ from flask import Flask, render_template, request, session
 from classes.userlogin import Userlogin
 from classes.menu import Menu
 from classes.Reservas import Reserva
-from classes.reservas import Reserva
-
 
 app = Flask(__name__)
 Userlogin.read("data/restaurante.db")   # Lê os dados de login de usuário de um banco de dados
