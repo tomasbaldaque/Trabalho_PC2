@@ -37,21 +37,15 @@ def chklogin():
 @app.route("/gform/<cname>", methods=["post","get"])
 def gform(cname=''):
      return gfsub.gform(cname)
-@app.route('/reserva', methods=['POST'])
-def reserva():
-    user_id = request.form.get('user_id')
-    data = request.form.get('data')
-    
-    if not user_id or not data:
-        return "Faltam informações para completar a reserva", 400
+
 
 @app.route('/about')
 def about():
     return render_template('about.html', ulogin=session.get("user"))
 
-# @app.route('/PáginaReservas')
-# def PáginaReservas():
-#     return render_template('PáginaReservas.html', ulogin=session.get("user"))
+@app.route('/PáginaReservas')
+def PáginaReservas():
+   return render_template('PáginaReservas.html', ulogin=session.get("user"))
 
 @app.route('/menu')
 def menu():
