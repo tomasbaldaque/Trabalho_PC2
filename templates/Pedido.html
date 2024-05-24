@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="dados">
+        <br><br>
+        <h1>Pedidos</h1>
+        <br>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Cliente</th>
+                    <th>DataHora</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Itens</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                <tr>
+                    <td>{{ pedido._code }}</td>
+                    <td>{{ pedido._cliente }}</td>
+                    <td>{{ pedido._data_hora }}</td>
+                    <td>{{ pedido._status }}</td>
+                    <td>{{ pedido.calcular_total() }}</td>
+                    <td>
+                        <ul>
+                            {% for item in pedido._itens %}
+                            <li>{{ item.get_nome() }} - {{ item.get_preco() }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
