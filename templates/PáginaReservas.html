@@ -1,33 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Customer order demo PCII</title>
-  {% block title %}
-  {% endblock %}
-</head>
-<body>
-  <nav>
-    <ul class="menu">
-      {% if ulogin == None %}
-        <li><a class="button" href="/login">Login</a></li>   
-      {% else %}
-        <li><a class="button" href="/logoff">Logoff</a></li>
+{% extends 'base.html' %}
 
-        <li><a class="button" href="/submenu?subm=Residente">Reserva</a></li>
-        <li><a class="button" href="/submenu?subm=Reserva">dataHora</a></li>
-        <li><a class="button" href="/submenu?subm=Estacionamento">status</a></li>
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
 
-        {% if submenu == "Reserva" %}
-
-        {% endif %}
+{% block content %}
+    <div class="dados">
+        <br><br>
+        <h1>Reserva</h1>
+        <br>
+        <form id="form" action="/criar_reserva" method="post">
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" value="{{ cliente }}" size="30" required />
+            <br><br>
+            <label for="dataHora">Data e Hora:</label>
+            <input type="text" id="dataHora" name="dataHora" value="{{ dataHora }}" size="30" required />
+            <br><br>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" value="{{ status }}" size="30" required />
+            <br><br>
+            <button type="submit" class="button1">Criar Reserva</button>
+        </form>
+        <br><br>
+        <h3>{{ resul }}</h3>
+    </div>
+    
+    <div class="lista-reservas">
+        <h2>Lista de Reservas</h2>
+        {% if reservas %}
+            <ul>
+                {% for reserva in reservas %}
+                    <li>Cliente: {{ reserva.Cliente }}, Data e Hora: {{ reserva.DataHora }}, Status: {{ reserva.status }}</li>
+                {% endfor %}
             </ul>
-        </nav>
-    {% block content %}
-    {% endblock %}
-  </body>
-</html>
-        
+        {% else %}
+            <p>Nenhuma reserva encontrada.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
 
 
