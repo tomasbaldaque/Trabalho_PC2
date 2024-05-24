@@ -6,22 +6,35 @@ Created on Thu May 16 12:25:17 2024
 @author: miguelanjo
 """
 
-class Gclass:
-    def __init__(self):
-        pass
+from classes.gclass import Gclass
+from classes.Pedido import Pedido
 
 class Cozinha(Gclass):
+    
+    obj = dict()
+    lst = list()
+    pos = 0
+    sortkey = ''
+    auto_number = 1  
+    nkey = 1
+    
+    att = ['_PedidosEspera', '_PedidosPreparo', '_totalVendas']
+    
+    header = 'Cozinha'
+   
+    des = ['PedidoEspera', 'PedidoPreparo', 'totalVendas']
+
     def __init__(self):
         super().__init__()
-        self.PedidosEspera: List[Pedido] = []
-        self.PedidosPreparo: List[Pedido] = []
-        self.totalVendas: int = 0
+        self.PedidosEspera = []
+        self.PedidosPreparo = []
+        self.totalVendas = 0
 
-    def adicionarPedidoEspera(self, pedido: Pedido):
+    def adicionarPedidoEspera(self, pedido):
         self.PedidosEspera.append(pedido)
         print(f"Pedido adicionado à espera: {pedido.get_cliente()} - {pedido.get_data_hora()}")
 
-    def moverPedidoParaPreparo(self, pedido: Pedido):
+    def moverPedidoParaPreparo(self, pedido):
         if pedido in self.PedidosEspera:
             self.PedidosEspera.remove(pedido)
             self.PedidosPreparo.append(pedido)
@@ -30,7 +43,7 @@ class Cozinha(Gclass):
         else:
             print(f"Pedido não encontrado na lista de espera: {pedido.get_cliente()} - {pedido.get_data_hora()}")
 
-    def marcarPedidoConcluido(self, pedido: Pedido):
+    def marcarPedidoConcluido(self, pedido):
         if pedido in self.PedidosPreparo:
             self.PedidosPreparo.remove(pedido)
             pedido.set_status('Concluído')

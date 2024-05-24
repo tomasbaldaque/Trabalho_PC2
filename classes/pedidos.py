@@ -6,9 +6,7 @@ Created on Sat May 11 23:01:29 2024
 @author: antoniooandree
 """
 
-class Gclass:
-    def __init__(self):
-        pass
+from classes.gclass import Gclass
 
 class Pedido(Gclass):
     obj = dict()

@@ -4,34 +4,79 @@ Created on Tue Apr 30 15:22:42 2024
 
 @author: Tomás
 """
+from classes.gclass import Gclass
 
-class Avaliação:
+class Avaliacao(Gclass):
+    obj = dict()
+    lst = list()
+    pos = 0
+    sortkey = ''
+    auto_number = 1  
+    nkey = 1
+    
+    att = ['_cliente', '_dataHora', '_pontuacao', '_comentario']
+    
+    header = 'Avaliação'
+   
+    des = ['cliente', 'dataHora', 'pontuacao', 'comentario']
+
     def __init__(self, cliente: str, dataHora: str, pontuacao: int, comentario: str):
-        self.cliente = cliente
-        self.dataHora = dataHora
-        self.pontuacao = pontuacao
-        self.comentario = comentario
+        super().__init__()
+        self._cliente = cliente
+        self._dataHora = dataHora
+        self._pontuacao = pontuacao
+        self._comentario = comentario
 
-    def getCliente(self):
-        return self.cliente
+        Avaliacao.obj[str(cliente)] = self
+        Avaliacao.lst.append(str(cliente))
 
-    def setCliente(self, cliente):
-        self.cliente = cliente
+    @property
+    def cliente(self):
+        return self._cliente
 
-    def getDataHora(self):
-        return self.dataHora
+    @cliente.setter
+    def cliente(self, cliente):
+        self._cliente = cliente
 
-    def setDataHora(self, dataHora):
-        self.dataHora = dataHora
+    @property
+    def dataHora(self):
+        return self._dataHora
 
-    def getPontuacao(self):
-        return self.pontuacao
+    @dataHora.setter
+    def dataHora(self, dataHora):
+        self._dataHora = dataHora
 
-    def setPontuacao(self, pontuacao):
-        self.pontuacao = pontuacao
+    @property
+    def pontuacao(self):
+        return self._pontuacao
 
-    def getComentario(self):
-        return self.comentario
+    @pontuacao.setter
+    def pontuacao(self, pontuacao):
+        self._pontuacao = pontuacao
 
-    def setComentario(self, comentario):
-        self.comentario = comentario
+    @property
+    def comentario(self):
+        return self._comentario
+
+    @comentario.setter
+    def comentario(self, comentario):
+        self._comentario = comentario
+
+    from classes.avaliacao import Avaliacao
+    
+    def main():
+        # Criar algumas avaliações
+        avaliacao1 = Avaliacao("Cliente 1", "2023-05-23 10:30", 5, "Excelente serviço!")
+        avaliacao2 = Avaliacao("Cliente 2", "2023-05-23 11:00", 4, "Muito bom, mas poderia melhorar.")
+        
+        # Acessar atributos das avaliações
+        print(f"Avaliação de {avaliacao1.cliente}: {avaliacao1.pontuacao} estrelas - {avaliacao1.comentario}")
+        print(f"Avaliação de {avaliacao2.cliente}: {avaliacao2.pontuacao} estrelas - {avaliacao2.comentario}")
+    
+        # Modificar uma avaliação
+        avaliacao2.pontuacao = 5
+        avaliacao2.comentario = "Revendo minha avaliação, está excelente!"
+        print(f"Revisão de {avaliacao2.cliente}: {avaliacao2.pontuacao} estrelas - {avaliacao2.comentario}")
+    
+    if __name__ == "__main__":
+        main()

@@ -5,10 +5,9 @@ Created on Tue Apr 30 15:21:54 2024
 @author: Tomás
 """
 
-from classes.gclass import Gclass
+from classes.gclass import Gclass  #importar a Gclass
 
 class Reserva(Gclass):
-    
     obj = dict()
     lst = list()
     pos = 0
@@ -23,7 +22,7 @@ class Reserva(Gclass):
     des = ['cliente', 'dataHora', 'status']
     
     def __init__(self, Cliente, dataHora: str, status: str):
-        super()._init_()
+        super().__init__()
         self._Cliente = Cliente
         self._dataHora = dataHora
         self._status = status
@@ -32,14 +31,55 @@ class Reserva(Gclass):
         Reserva.lst.append(str(Cliente))
       
     @property 
-    def getCliente(self):
-        return self.Cliente 
+    def Cliente(self):
+        return self._Cliente 
+    
+    @Cliente.setter
+    def Cliente(self, Cliente):
+        self._Cliente = Cliente
+        
     @property
-    def getDataHora(self):
-        return self.dataHora
-    @property
-    def getStatus(self):
-        return self.status
-    @property
-    def setStatus(self, status):
-        self.status = status
+    def DataHora(self):
+        return self._dataHora
+    
+    @DataHora.setter 
+    def DataHora(self, dataHora):
+        self._dataHora = dataHora
+
+    @property 
+    def status(self):
+        return self._status
+    
+    @status.setter 
+    def status(self, status):
+        self._status = status
+
+
+    def listar_reservas():
+        for cliente, reserva in Reserva.obj.items():
+            print(f"Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
+    
+    
+    def criar_reserva(cliente, dataHora, status):
+        return Reserva(cliente, dataHora, status)
+    
+    
+    def alterar_reserva(cliente, dataHora=None, status=None):
+        reserva = Reserva.obj.get(cliente)
+        if reserva:
+            if dataHora:
+                reserva.DataHora = dataHora
+            if status:
+                reserva.status = status
+            print(f"Reserva atualizada: Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
+        else:
+            print(f"Reserva para o cliente {cliente} não encontrada.")
+    
+    
+    def exibir_reserva(cliente):
+        reserva = Reserva.obj.get(cliente)
+        if reserva:
+            print(f"Cliente: {cliente}, DataHora: {reserva.DataHora}, Status: {reserva.status}")
+        else:
+            print(f"Reserva para o cliente {cliente} não encontrada.")
+    

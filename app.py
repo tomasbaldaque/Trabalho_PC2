@@ -41,6 +41,10 @@ def gform(cname=''):
 def about():
     return render_template('about.html', ulogin=session.get("user"))
 
+@app.route('/PáginaReservas')
+def PáginaReservas():
+    return render_template('PáginaReservas.html', ulogin=session.get("user"))
+
 @app.route('/menu')
 def menu():
     return msub.chkmenu()

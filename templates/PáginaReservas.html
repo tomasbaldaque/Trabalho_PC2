@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+<center>
+    <h1><a href="/" target="_Self" style="text-align:centre">início</a></h1>
+</center>
+
+<div class="about-section">
+    <h1><b>Sobre Nós<b></h1>
+    <p>Este trabalho foi desenvolvido no âmbito da disciplina de Programação II, que faz parte da Licenciatura em Engenharia e Gestão Industrial na Faculdade de Engenharia da Universidade do Porto.</p>
+</div>
+{% endblock %}
