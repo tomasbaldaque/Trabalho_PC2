@@ -5,35 +5,44 @@ class Reserva(Gclass):
     lst = list()
     pos = 0
     sortkey = ''
-    auto_number = 1  
+    auto_number = 0  
     nkey = 1
     
-    att = ['_cliente', '_dataHora', '_status']
+    att = ['_code', '_cliente', '_dataHora', '_status']
     
     header = 'reserva'
    
-    des = ['cliente', 'dataHora', 'status']
+    des = ['code', 'cliente', 'dataHora', 'status']
     
-    def __init__(self, Cliente, dataHora: str, status: str):
+    def __init__(self, code, cliente, dataHora: str, status: str):
         super().__init__()
-        self._Cliente = Cliente
+        self._code = code
+        self._cliente = cliente
         self._dataHora = dataHora
         self._status = status
         
-        Reserva.obj[str(Cliente)] = self
-        Reserva.lst.append(str(Cliente))
-      
+        Reserva.obj[str(code)] = self
+        Reserva.lst.append(str(code))
+        
     @property 
-    def Cliente(self):
-        return self._Cliente 
+    def code(self):
+        return self._code
+        
+    @property 
+    def cliente(self):
+        return self._cliente 
     
-    @Cliente.setter
-    def Cliente(self, Cliente):
-        self._Cliente = Cliente
+    @cliente.setter
+    def cliente(self, cliente):
+        self._cliente = cliente
         
     @property
     def DataHora(self):
         return self._dataHora
+    
+    @code.setter 
+    def code(self, code):
+        self._code = code
     
     @DataHora.setter 
     def DataHora(self, dataHora):

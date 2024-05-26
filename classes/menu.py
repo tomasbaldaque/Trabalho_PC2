@@ -115,3 +115,5 @@ if __name__ == "__main__":
     table_name = 'Menu'
     df2SQL(df, database_file, table_name)
     Menu.first()
+    
+    print(Menu.first())
