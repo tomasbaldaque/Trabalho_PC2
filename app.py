@@ -53,7 +53,7 @@ def PáginaReservas():
 @app.route('/menu')
 def menu():
     return msub.chkmenu()     # Chama a função de menu do módulo de menu
-
+    
 
 if __name__ == '__main__':
     app.run(debug=False,port=7000)     # Executa o aplicativo no modo de produção (debug desativado) na porta 7000

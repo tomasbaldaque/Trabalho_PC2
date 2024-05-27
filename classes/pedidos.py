@@ -14,7 +14,7 @@ class Pedido(Gclass):
     
     des = ['Code', 'Cliente']
 
-    def __init__(self, cliente):
+    def __init__(self, code, cliente):
         super().__init__()
         self._code = Pedido.auto_number
         Pedido.auto_number += 1
