@@ -8,29 +8,21 @@ class Pedido(Gclass):
     auto_number = 0
     nkey = 1
     
-    att = ['_code', '_cliente']
+    att = ['_code']
     
     header = 'Pedido'
     
-    des = ['Code', 'Cliente']
+    des = ['Code']
 
-    def __init__(self, code, cliente):
+    def __init__(self, code):
         super().__init__()
-        self._code = Pedido.auto_number
+        self._code = code
         Pedido.auto_number += 1
-        self._cliente = cliente
         self._itens = []
 
         Pedido.obj[self._code] = self
         Pedido.lst.append(self._code)
     
-    @property
-    def cliente(self):
-        return self._cliente
-    
-    @cliente.setter
-    def cliente(self, value):
-        self._cliente = value
 
     def adicionar_item(self, item):    # método para adicionar item do menu ao pedido
         self._itens.append(item)

@@ -15,6 +15,7 @@ app = Flask(__name__)
 Userlogin.read("data/restaurante.db")
 Menu.read("data/restaurante.db")
 Reserva.read("data/restaurante.db")
+Pedido.read("data/restaurante.db")
 app.secret_key = 'BAD_SECRET_KEY'   # Chave secreta usada para sessões (deve ser uma chave forte em produção)
 import subs_login as lsub      # Importa o módulo de login
 import subs_gform as gfsub     # Importa o módulo de formulários gerais
